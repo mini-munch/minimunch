@@ -191,6 +191,7 @@ function showCheckoutForm() {
 
 function closeSuccess() { document.getElementById('success-modal').classList.add('hidden'); }
 
+// Submit Order
 function submitOrder(event) {
     event.preventDefault();
     if (cart.length === 0) return alert("Your cart is empty!");
@@ -198,27 +199,28 @@ function submitOrder(event) {
     const name = document.getElementById('cust-name').value;
     const phone = document.getElementById('cust-phone').value;
     const address = document.getElementById('cust-address').value;
-    const paymentMethod = document.getElementById('cust-payment').value; // Captures payment choice!
+    const paymentMethod = document.getElementById('cust-payment').value; 
     
     let orderDetails = cart.map(item => `${item.qty}x ${item.name} (${item.weight})`).join('\n');
     let grandTotal = document.getElementById('cart-grand-total').innerText;
     let deliveryStatus = document.getElementById('cart-delivery').innerText;
     
-    // Attaches delivery and payment method to the order details string
     orderDetails += `\n[Delivery: ${deliveryStatus}]`;
-    orderDetails += `\n[Payment: ${paymentMethod}]`;
 
     document.getElementById('submit-btn').style.display = 'none';
     document.getElementById('loading-msg').classList.remove('hidden');
 
-    const scriptURL = 'PASTE_YOUR_LINK_HERE'; // <--- PASTE YOUR SHEET URL HERE
+    // !!! PASTE YOUR NEW GOOGLE URL HERE !!!
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyq2TCnxoNuXTzYUp3pf2L0LG6WqaFvi79WwK7lDNqoT1eLceLBmWOgt3V5PDsr1e13/exec'; 
 
     const formData = new FormData();
     formData.append('name', name);
     formData.append('phone', phone);
     formData.append('address', address);
-    formData.append('order', orderDetails);
+    formData.append('payment', paymentMethod); // Sent directly to Column E
     formData.append('total', grandTotal);
+    formData.append('order', orderDetails);
+    formData.append('cartData', JSON.stringify(cart)); // Sent to auto-create columns!
 
     fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
@@ -237,5 +239,3 @@ function submitOrder(event) {
             document.getElementById('loading-msg').classList.add('hidden');
         });
 }
-
-updateCartUI();
