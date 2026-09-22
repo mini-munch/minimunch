@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mini Munch - Fresh Bakery & Premium Nuts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="store-header">
+        <img src="logo.png" alt="mini munch logo" class="logo" onerror="this.src='https://via.placeholder.com/150/ffffff/000000?text=Logo'">
+        <h1><span>mini</span><span class="orange-text">munch</span></h1>
+        
+        <!-- UPDATED WELCOME TEXT -->
+        <div class="welcome-card">
+            <h3 style="color: #e64a19; margin-top: 0;">✨ Simply Good. Naturally Delicious.</h3>
+            <p><strong>A little something delicious for every craving — from fresh bakery treats to premium nuts.</strong></p>
+            <p>☕ <em>With your tea. Between meals. Anytime you feel like a munch.</em></p>
+            <h4 style="color: #5d4037; font-size: 1.1rem; margin: 15px 0 5px;">🤎 Make Every Munch a Mini Moment.</h4>
+            <p><strong>Order Your Favorites Today.</strong></p>
+        </div>
+
+        <!-- UPDATED TRUST BADGES -->
+        <div class="trust-badges-container">
+            <div class="trust-badge guarantee-badge">
+                🛡️ <strong>OPEN PARCEL ALLOWED</strong><br>
+                <span>Check taste & freshness, THEN pay!</span>
+            </div>
+            <div class="trust-badge payment-badge">
+                💳 <strong>Cash on Delivery / Bank Transfer / Easy Paisa / Jazz Cash</strong> Accepted
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="menu-title">Our Premium Menu</h2>
+        <div class="products-grid" id="products-grid">
+            <!-- Products injected via JS -->
+        </div>
+    </main>
+
+    <div class="floating-cart" onclick="toggleCart()">
+        🛒 Cart <span id="cart-count">0</span>
+    </div>
+
+    <!-- Cart & Checkout Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2>Your Order</h2>
+            
+            <div id="delivery-promo" class="delivery-promo"></div>
+            
+            <div id="cart-items"></div>
+            
+            <div class="cart-summary" id="cart-summary" style="display: none;">
+                <div class="summary-line">
+                    <span>Subtotal:</span><span id="cart-subtotal">Rs 0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Delivery Fee:</span><span id="cart-delivery">Rs 200</span>
+                </div>
+                <div class="summary-line grand-total">
+                    <span>Total:</span><span id="cart-grand-total">Rs 0</span>
+                </div>
+            </div>
+
+            <form id="checkout-form" class="hidden" onsubmit="submitOrder(event)">
+                <h3>Delivery Details</h3>
+                <input type="text" id="cust-name" placeholder="Full Name" required>
+                <input type="tel" id="cust-phone" placeholder="Phone (e.g. 03XXXXXXXXX)" required pattern="^03\d{9}$">
+                <textarea id="cust-address" placeholder="Complete Delivery Address" required rows="3"></textarea>
+                
+                <select id="cust-payment" class="variant-select" style="width: 100%; margin-bottom: 15px; padding: 15px; border-radius: 8px;" required>
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                    <option value="Easypaisa">Easypaisa</option>
+                    <option value="Jazz Cash">Jazz Cash</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                </select>
+                
+                <p class="easypaisa-note">* For online payments, our representative will guide you during confirmation.</p>
+                
+                <button type="submit" class="checkout-btn" id="submit-btn">Place Order</button>
+                <p id="loading-msg" class="hidden loading-text">Sending order securely...</p>
+            </form>
+            
+            <button id="show-checkout-btn" class="checkout-btn" onclick="showCheckoutForm()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content text-center">
+            <h1 class="success-icon">🎉</h1>
+            <h2 class="success-title">Order Placed Successfully!</h2>
+            <p class="success-msg">
+                Thank you for choosing Mini Munch!<br>
+                Your order has been safely received.<br>
+                <strong>Our representative will contact you shortly for confirmation. ❤️</strong>
+            </p>
+            <button class="checkout-btn" onclick="closeSuccess()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
