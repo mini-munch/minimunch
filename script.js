@@ -1,16 +1,16 @@
-// The complete product list with new items and updated weights
+// The complete product list with updated sequence, prices, and Rice at the end
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "1 KG", price: 1600 } ]
+        variants: [ { weight: "1 KG", price: 1600 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 2, name: "Nan Khatai", img: "5-nan.png",
-        variants: [ { weight: "1 KG", price: 1600 } ]
+        variants: [ { weight: "1 KG", price: 1600 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
-        variants: [ { weight: "250 g", price: 1000 }, { weight: "500 g", price: 2000 }, { weight: "1 KG", price: 4000 } ]
+        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
         id: 4, name: "Almonds USA", img: "b1.png",
@@ -22,8 +22,7 @@ const products = [
     },
     { 
         id: 6, name: "Pista Giri", img: "b4.png",
-        // UPDATE PISTA 250g & 500g PRICES BELOW!
-        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 0 }, { weight: "500 g", price: 0 } ]
+        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 2500 }, { weight: "500 g", price: 5000 } ]
     },
     { 
         id: 7, name: "Kaju", img: "b7.png",
@@ -58,12 +57,12 @@ const products = [
         variants: [ { weight: "250 g", price: 225 }, { weight: "500 g", price: 450 }, { weight: "1 KG", price: 900 } ]
     },
     { 
-        id: 15, name: "Rice", img: "b14.png",
-        variants: [ { weight: "10 kg loose", price: 3900 }, { weight: "25 kg bag", price: 9000 } ]
+        id: 15, name: "Dry Fig", img: "b15.png",
+        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
-        id: 16, name: "Dry Fig", img: "b15.png",
-        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
+        id: 16, name: "Rice", img: "b14.png", // Moved to the very end
+        variants: [ { weight: "10 KG Loose", price: 3900 }, { weight: "25 KG Bag", price: 9000 } ]
     }
 ];
 
@@ -71,24 +70,35 @@ let cart = [];
 const FREE_DELIVERY_THRESHOLD = 3000;
 const DELIVERY_CHARGE = 200;
 
-// Render Products & Auto-Select Lowest Price (Index 0)
+// Render Products (With smart hiding of dropdowns for single-option items)
 const productsGrid = document.getElementById('products-grid');
 products.forEach(product => {
-    let optionsHtml = '';
-    product.variants.forEach((v, index) => {
-        // Automatically selects the very first option (the lowest weight/price)
-        let isSelected = (index === 0) ? "selected" : "";
-        optionsHtml += `<option value="${index}" ${isSelected}>${v.weight} - Rs ${v.price}</option>`;
-    });
+    let selectorHtml = '';
+
+    if (product.variants.length > 1) {
+        // Show dropdown if there are multiple options
+        let optionsHtml = '';
+        product.variants.forEach((v, index) => {
+            let isSelected = (index === 0) ? "selected" : "";
+            optionsHtml += `<option value="${index}" ${isSelected}>${v.weight} - Rs ${v.price}</option>`;
+        });
+        selectorHtml = `<select id="variant-${product.id}" class="variant-select">${optionsHtml}</select>`;
+    } else {
+        // If only 1 option, hide the dropdown and show a nice badge instead!
+        selectorHtml = `
+            <div style="margin: 8px auto; padding: 7px; font-weight: bold; font-size: 0.9rem; color: #e64a19; background: #fff4f1; border-radius: 6px; width: 90%; box-sizing: border-box;">
+                ${product.variants[0].weight} - Rs ${product.variants[0].price}
+            </div>
+            <input type="hidden" id="variant-${product.id}" value="0">
+        `;
+    }
 
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
         <img src="${product.img}" alt="${product.name}" class="product-img" onerror="this.src='https://via.placeholder.com/220x190?text=${product.name}'">
         <h3 class="product-name">${product.name}</h3>
-        <select id="variant-${product.id}" class="variant-select">
-            ${optionsHtml}
-        </select>
+        ${selectorHtml}
         <button class="add-to-cart" onclick="addToCart(${product.id}, this)">Add to Cart 🛒</button>
     `;
     productsGrid.appendChild(card);
