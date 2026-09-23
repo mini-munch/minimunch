@@ -1,15 +1,16 @@
+// The complete product list with new items and updated weights
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "500 g", price: 800 }, { weight: "1 KG", price: 1600 } ]
+        variants: [ { weight: "1 KG", price: 1600 } ]
     },
     { 
         id: 2, name: "Nan Khatai", img: "5-nan.png",
-        variants: [ { weight: "500 g", price: 800 }, { weight: "1 KG", price: 1600 } ]
+        variants: [ { weight: "1 KG", price: 1600 } ]
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
-        variants: [ { weight: "250 g", price: 950 }, { weight: "500 g", price: 1900 }, { weight: "1 KG", price: 3800 } ]
+        variants: [ { weight: "250 g", price: 1000 }, { weight: "500 g", price: 2000 }, { weight: "1 KG", price: 4000 } ]
     },
     { 
         id: 4, name: "Almonds USA", img: "b1.png",
@@ -21,7 +22,8 @@ const products = [
     },
     { 
         id: 6, name: "Pista Giri", img: "b4.png",
-        variants: [ { weight: "250 g", price: 2500 }, { weight: "500 g", price: 5000 }, { weight: "1 KG", price: 10000 } ]
+        // UPDATE PISTA 250g & 500g PRICES BELOW!
+        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 0 }, { weight: "500 g", price: 0 } ]
     },
     { 
         id: 7, name: "Kaju", img: "b7.png",
@@ -54,6 +56,14 @@ const products = [
     { 
         id: 14, name: "Roasted Chana", img: "b12.png",
         variants: [ { weight: "250 g", price: 225 }, { weight: "500 g", price: 450 }, { weight: "1 KG", price: 900 } ]
+    },
+    { 
+        id: 15, name: "Rice", img: "b14.png",
+        variants: [ { weight: "10 kg loose", price: 3900 }, { weight: "25 kg bag", price: 9000 } ]
+    },
+    { 
+        id: 16, name: "Dry Fig", img: "b15.png",
+        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     }
 ];
 
@@ -61,13 +71,13 @@ let cart = [];
 const FREE_DELIVERY_THRESHOLD = 3000;
 const DELIVERY_CHARGE = 200;
 
-// Render Products & Auto-Select 1 KG
+// Render Products & Auto-Select Lowest Price (Index 0)
 const productsGrid = document.getElementById('products-grid');
 products.forEach(product => {
     let optionsHtml = '';
     product.variants.forEach((v, index) => {
-        // This line checks if the weight is 1 KG, and if so, makes it the default selected option!
-        let isSelected = (v.weight === "1 KG") ? "selected" : "";
+        // Automatically selects the very first option (the lowest weight/price)
+        let isSelected = (index === 0) ? "selected" : "";
         optionsHtml += `<option value="${index}" ${isSelected}>${v.weight} - Rs ${v.price}</option>`;
     });
 
@@ -206,21 +216,21 @@ function submitOrder(event) {
     let deliveryStatus = document.getElementById('cart-delivery').innerText;
     
     orderDetails += `\n[Delivery: ${deliveryStatus}]`;
+    orderDetails += `\n[Payment: ${paymentMethod}]`;
 
     document.getElementById('submit-btn').style.display = 'none';
     document.getElementById('loading-msg').classList.remove('hidden');
 
-    // !!! PASTE YOUR NEW GOOGLE URL HERE !!!
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyq2TCnxoNuXTzYUp3pf2L0LG6WqaFvi79WwK7lDNqoT1eLceLBmWOgt3V5PDsr1e13/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwFaEaOS0EEWAXRyoGk0ZvJlkPLmFuHJJKaZfMQYVGy7-IUWhX7Ahu0gJdnYuH4Ha-t/exec'; // <--- PUT YOUR GOOGLE SCRIPT LINK HERE
 
     const formData = new FormData();
     formData.append('name', name);
     formData.append('phone', phone);
     formData.append('address', address);
-    formData.append('payment', paymentMethod); // Sent directly to Column E
-    formData.append('total', grandTotal);
     formData.append('order', orderDetails);
-    formData.append('cartData', JSON.stringify(cart)); // Sent to auto-create columns!
+    formData.append('payment', paymentMethod);
+    formData.append('total', grandTotal);
+    formData.append('cartData', JSON.stringify(cart));
 
     fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(response => {
@@ -239,3 +249,5 @@ function submitOrder(event) {
             document.getElementById('loading-msg').classList.add('hidden');
         });
 }
+
+updateCartUI();
