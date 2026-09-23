@@ -62,7 +62,7 @@ const products = [
     },
     { 
         id: 16, name: "Rice", img: "b14.png", // Moved to the very end
-        variants: [ { weight: "10 KG Loose", price: 3900 }, { weight: "25 KG Bag", price: 9000 } ]
+        variants: [ { weight: "25 KG Bag", price: 9000 }, { weight: "10 KG Loose", price: 3900 } ]
     }
 ];
 
