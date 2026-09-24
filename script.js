@@ -2,51 +2,51 @@
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "1 KG", price: 1600 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
-        id: 2, name: "Nan Khatai", img: "5-nan.png",
-        variants: [ { weight: "1 KG", price: 1600 } ] // Only 1 option (dropdown will be hidden)
+        id: 2, name: "Almond Nan Khatai", img: "5-nan.png",
+        variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
-        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
+        variants: [ { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
         id: 4, name: "Almonds USA", img: "b1.png",
-        variants: [ { weight: "250 g", price: 1050 }, { weight: "500 g", price: 2100 }, { weight: "1 KG", price: 4200 } ]
+        variants: [ { weight: "500 g", price: 2100 }, { weight: "1 KG", price: 4200 } ]
     },
     { 
         id: 5, name: "Walnuts Giri", img: "b5.png",
-        variants: [ { weight: "250 g", price: 950 }, { weight: "500 g", price: 1900 }, { weight: "1 KG", price: 3800 } ]
+        variants: [ { weight: "500 g", price: 1900 }, { weight: "1 KG", price: 3800 } ]
     },
     { 
         id: 6, name: "Pista Giri", img: "b4.png",
-        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 2500 }, { weight: "500 g", price: 5000 } ]
+        variants: [ { weight: "250 g", price: 2500 }, { weight: "500 g", price: 5000 } ]
     },
     { 
         id: 7, name: "Kaju", img: "b7.png",
-        variants: [ { weight: "250 g", price: 1350 }, { weight: "500 g", price: 2700 }, { weight: "1 KG", price: 5400 } ]
+        variants: [ { weight: "500 g", price: 2700 }, { weight: "1 KG", price: 5400 } ]
     },
     { 
-        id: 8, name: "Kaju Fried", img: "b8.png",
-        variants: [ { weight: "250 g", price: 1400 }, { weight: "500 g", price: 2800 }, { weight: "1 KG", price: 5600 } ]
+        id: 8, name: "Roasted Kaju", img: "b8.png",
+        variants: [ { weight: "500 g", price: 2800 }, { weight: "1 KG", price: 5600 } ]
     },
     { 
         id: 9, name: "Mix Dry Fruits", img: "b2.png",
-        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
+        variants: [ { weight: "1 KG", price: 3600 } ]
     },
     { 
-        id: 10, name: "Black Raisin", img: "b9.png",
-        variants: [ { weight: "250 g", price: 450 }, { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ]
+        id: 10, name: "Black Raisins", img: "b9.png",
+        variants: [ { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ]
     },
     { 
-        id: 11, name: "Sunder Khani Raisin", img: "b10.png",
-        variants: [ { weight: "250 g", price: 500 }, { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ]
+        id: 11, name: "Sunder Khani Raisins", img: "b10.png",
+        variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ]
     },
     { 
         id: 12, name: "Dry Apricot", img: "b13.png",
-        variants: [ { weight: "250 g", price: 625 }, { weight: "500 g", price: 1250 }, { weight: "1 KG", price: 2500 } ]
+        variants: [ { weight: "500 g", price: 1250 }, { weight: "1 KG", price: 2500 } ]
     },
     { 
         id: 13, name: "Phool Makhanay", img: "b6.png",
@@ -54,15 +54,15 @@ const products = [
     },
     { 
         id: 14, name: "Roasted Chana", img: "b12.png",
-        variants: [ { weight: "250 g", price: 225 }, { weight: "500 g", price: 450 }, { weight: "1 KG", price: 900 } ]
+        variants: [ { weight: "500 g", price: 450 }, { weight: "1 KG", price: 900 } ]
     },
     { 
         id: 15, name: "Dry Fig", img: "b15.png",
-        variants: [ { weight: "250 g", price: 900 }, { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
+        variants: [ { weight: "500 g", price: 2000 }, { weight: "1 KG", price: 4000 } ]
     },
     { 
-        id: 16, name: "Rice", img: "b14.png", // Moved to the very end
-        variants: [ { weight: "25 KG Bag", price: 9000 }, { weight: "10 KG Loose", price: 3900 } ]
+        id: 16, name: "Hafizabad Basmati Rice", img: "b14.png", // Moved to the very end
+        variants: [ { weight: "25 KG Bag", price: 9000 } ]
     }
 ];
 
