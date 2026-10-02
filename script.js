@@ -231,7 +231,7 @@ function submitOrder(event) {
     document.getElementById('submit-btn').style.display = 'none';
     document.getElementById('loading-msg').classList.remove('hidden');
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbztQ-eKVvPflAWVdcyfwsgyQfoKzDUFyRw3ySLMPU2HbS14t3tHDJG7b6EzCvIJk3lgWQ/exec'; // <--- PUT YOUR GOOGLE SCRIPT LINK HERE
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwlCkooH6R027CQYSAi6T3kBMYqYYQ8CmnSESmRRvQizF_2D5--wGSfPL4pEXKNAZv9_w/exec'; // <--- PUT YOUR GOOGLE SCRIPT LINK HERE
 
     const formData = new FormData();
     formData.append('name', name);
