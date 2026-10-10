@@ -5,7 +5,7 @@ const products = [
         variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
-        id: 2, name: "Almond Nan Khatai", img: "5-nan.png",
+        id: 2, name: "Almonds Nan Khatai", img: "5-nan.png",
         variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
@@ -61,8 +61,8 @@ const products = [
         variants: [ { weight: "500 g", price: 2000 }, { weight: "1 KG", price: 4000 } ]
     },
     { 
-        id: 16, name: "Hafizabad Basmati Rice", img: "b14.png", // Moved to the very end
-        variants: [ { weight: "25 KG Bag", price: 9000 } ]
+        id: 16, name: "Premium Basmati Rice", img: "b14.png", // Moved to the very end
+        variants: [ { weight: "25 KG Bag", price: 9900 } ]
     }
 ];
 
