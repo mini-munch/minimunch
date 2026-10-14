@@ -2,11 +2,11 @@
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 2, name: "Almonds Nan Khatai", img: "5-nan.png",
-        variants: [ { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "500 g", price: 1100 }, { weight: "1 KG", price: 2200 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
@@ -22,15 +22,15 @@ const products = [
     },
     { 
         id: 6, name: "Pista Giri", img: "b4.png",
-        variants: [ { weight: "250 g", price: 2500 }, { weight: "500 g", price: 5000 } ]
+        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 2500 } ]
     },
     { 
         id: 7, name: "Kaju", img: "b7.png",
-        variants: [ { weight: "500 g", price: 2700 }, { weight: "1 KG", price: 5400 } ]
+        variants: [ { weight: "250 g", price: 1350 }, { weight: "500 g", price: 2700 } ]
     },
     { 
         id: 8, name: "Roasted Kaju", img: "b8.png",
-        variants: [ { weight: "500 g", price: 2800 }, { weight: "1 KG", price: 5600 } ]
+        variants: [ { weight: "250 g", price: 1400 }, { weight: "500 g", price: 2800 } ]
     },
     { 
         id: 9, name: "Mix Dry Fruits", img: "b2.png",
@@ -50,7 +50,7 @@ const products = [
     },
     { 
         id: 13, name: "Phool Makhanay", img: "b6.png",
-        variants: [ { weight: "250 g", price: 1750 }, { weight: "500 g", price: 3500 }, { weight: "1 KG", price: 7000 } ]
+        variants: [ { weight: "250 g", price: 1750 }, { weight: "500 g", price: 3500 } ]
     },
     { 
         id: 14, name: "Roasted Chana", img: "b12.png",
@@ -62,7 +62,7 @@ const products = [
     },
     { 
         id: 16, name: "Premium Basmati Rice", img: "b14.png", // Moved to the very end
-        variants: [ { weight: "25 KG Bag", price: 9900 } ]
+        variants: [ { weight: "10 KG Bag", price: 4300 }, { weight: "25 KG Bag", price: 9900 } ]
     }
 ];
 
