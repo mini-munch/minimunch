@@ -2,7 +2,7 @@
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "500 g", price: 800 }, { weight: "1 KG", price: 1800 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 2, name: "Almonds Nan Khatai", img: "5-nan.png",
