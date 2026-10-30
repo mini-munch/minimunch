@@ -19,18 +19,16 @@ body {
     border-bottom-right-radius: 20px; 
 }
 
-.logo { 
-    width: 120px; 
-    height: auto; 
-    margin-bottom: -8px; 
+/* Premium Wide Hero Banner (Replaces old logo) */
+.top-hero-banner {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
 }
-
-h1 { 
-    font-size: 2rem; 
-    margin: 0; 
-    letter-spacing: -1px; 
-}
-.orange-text { color: #ff5722; }
 
 /* BOLD RED HERO CALL TO ACTION */
 .quick-order-hero {
