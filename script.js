@@ -2,67 +2,83 @@
 const products = [
     { 
         id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 2, name: "Almonds Nan Khatai", img: "5-nan.png",
-        variants: [ { weight: "500 g", price: 1100 }, { weight: "1 KG", price: 2200 } ] // Only 1 option (dropdown will be hidden)
+        variants: [ { weight: "500 g", price: 1200 }, { weight: "1 KG", price: 2400 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
         variants: [ { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
-        id: 4, name: "Almonds USA", img: "b1.png",
-        variants: [ { weight: "500 g", price: 2100 }, { weight: "1 KG", price: 4200 } ]
+        id: 4, name: "Premium USA Almonds", img: "b1.png",
+        variants: [ { weight: "500 g", price: 2400 }, { weight: "1 KG", price: 4800 } ]
     },
     { 
         id: 5, name: "Walnuts Giri", img: "b5.png",
-        variants: [ { weight: "500 g", price: 1900 }, { weight: "1 KG", price: 3800 } ]
+        variants: [ { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
-        id: 6, name: "Pista Giri", img: "b4.png",
-        variants: [ { weight: "100 g", price: 1000 }, { weight: "250 g", price: 2500 } ]
+        id: 6, name: "Pista Shell", img: "1ps.png",
+        variants: [ { weight: "250 g", price: 2250 }, { weight: "500 g", price: 4500 } ]
+    },
+        { 
+        id: 7, name: "Pista Giri", img: "b4.png",
+        variants: [ { weight: "100 g", price: 1500 }, { weight: "250 g", price: 3750 } ]
     },
     { 
-        id: 7, name: "Kaju", img: "b7.png",
-        variants: [ { weight: "250 g", price: 1350 }, { weight: "500 g", price: 2700 } ]
+        id: 8, name: "Kaju", img: "b7.png",
+        variants: [ { weight: "250 g", price: 1300 }, { weight: "500 g", price: 2600 } ]
     },
     { 
-        id: 8, name: "Roasted Kaju", img: "b8.png",
+        id: 9, name: "Roasted Kaju", img: "b8.png",
         variants: [ { weight: "250 g", price: 1400 }, { weight: "500 g", price: 2800 } ]
     },
     { 
-        id: 9, name: "Mix Dry Fruits", img: "b2.png",
-        variants: [ { weight: "1 KG", price: 3600 } ]
+        id: 10, name: "Mix Dry Fruits", img: "b2.png",
+        variants: [ { weight: "500 g", price: 1800 }, { weight: "1 KG", price: 3600 } ]
     },
     { 
-        id: 10, name: "Black Raisins", img: "b9.png",
-        variants: [ { weight: "500 g", price: 900 }, { weight: "1 KG", price: 1800 } ]
-    },
-    { 
-        id: 11, name: "Sunder Khani Raisins", img: "b10.png",
+        id: 11, name: "Black Raisins", img: "b9.png",
         variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ]
     },
     { 
-        id: 12, name: "Dry Apricot", img: "b13.png",
+        id: 12, name: "Sunder Khani Raisins", img: "b10.png",
+        variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ]
+    },
+    { 
+        id: 13, name: "Dry Apricot", img: "b13.png",
         variants: [ { weight: "500 g", price: 1250 }, { weight: "1 KG", price: 2500 } ]
     },
     { 
-        id: 13, name: "Phool Makhanay", img: "b6.png",
+        id: 14, name: "Phool Makhanay", img: "b6.png",
         variants: [ { weight: "250 g", price: 1750 }, { weight: "500 g", price: 3500 } ]
     },
     { 
-        id: 14, name: "Roasted Chana", img: "b12.png",
+        id: 15, name: "Roasted Chana", img: "b12.png",
         variants: [ { weight: "500 g", price: 450 }, { weight: "1 KG", price: 900 } ]
     },
     { 
-        id: 15, name: "Dry Fig", img: "b15.png",
+        id: 16, name: "Dry Fig", img: "b15.png",
         variants: [ { weight: "500 g", price: 2000 }, { weight: "1 KG", price: 4000 } ]
     },
     { 
-        id: 16, name: "Premium Basmati Rice", img: "b14.png", // Moved to the very end
-        variants: [ { weight: "10 KG Bag", price: 4300 }, { weight: "25 KG Bag", price: 9900 } ]
+        id: 17, name: "Pumpkin Seeds", img: "1p.png",
+        variants: [ { weight: "100 g", price: 300 }, { weight: "200 g", price: 600 } ]
+    },
+    { 
+        id: 18, name: "Sunflower Seeds", img: "1s.png",
+        variants: [ { weight: "100 g", price: 150 }, { weight: "200 g", price: 300 } ]
+    },
+    { 
+        id: 19, name: "Chia Seeds", img: "1c.png",
+        variants: [ { weight: "100 g", price: 200 }, { weight: "200 g", price: 400 } ]
+    },
+    { 
+        id: 20, name: "Premium Basmati Rice", img: "b14.png", // Moved to the very end
+        variants: [ { weight: "5 KG Pack", price: 2250 }, { weight: "10 KG Pack", price: 4300 }, { weight: "25 KG Bag", price: 9700 } ]
     }
 ];
 
