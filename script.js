@@ -1,12 +1,16 @@
 // The complete product list with updated sequence, prices, and Rice at the end
 const products = [
     { 
-        id: 1, name: "Cake Rusk", img: "4-cr.png",
-        variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
+        id: 1, name: "Nan Khatai", img: "5-nanx.png",
+        variants: [ { weight: "500 g", price: 800 }, { weight: "1 KG", price: 1600 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
-        id: 2, name: "Almonds Nan Khatai", img: "5-nan.png",
+        id: 2, name: "Badam Khatai", img: "5-nan.png",
         variants: [ { weight: "500 g", price: 1200 }, { weight: "1 KG", price: 2400 } ] // Only 1 option (dropdown will be hidden)
+    },
+    { 
+        id: 1, name: "Cake Rusk", img: "4-cr.png",
+        variants: [ { weight: "500 g", price: 1000 }, { weight: "1 KG", price: 2000 } ] // Only 1 option (dropdown will be hidden)
     },
     { 
         id: 3, name: "Almonds Giri", img: "b3.png",
